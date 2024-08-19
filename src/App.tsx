@@ -1,7 +1,13 @@
+import Navbar from "./components/Navbar";
+import TaskList from "./components/TaskList";
+
 function App() {
   return (
-    <div className="flex items-center h-screen text-lg bg-white justify-items-center font-roboto">
-      <h1 className="w-full text-center text-primaryBlue">Scribble Sprout!</h1>
+    <div className="flex flex-col items-center h-screen text-lg bg-white justify-items-center font-roboto">
+      <div className="container">
+        <Navbar />
+        <TaskList />
+      </div>
     </div>
   );
 }
