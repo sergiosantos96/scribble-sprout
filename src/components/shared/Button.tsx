@@ -8,10 +8,11 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ label, icon, onClick }) => {
   return (
     <button
-      className="p-2 transition rounded-md active:scale-95 bg-primaryBlue hover:bg-darkBlue"
+      className="flex items-center p-2 text-white transition rounded-md active:scale-95 bg-primaryBlue hover:bg-darkBlue"
       onClick={onClick}
     >
-      {icon} <span className="text-white">{label}</span>
+      <span>{icon}</span>
+      <span className={`text-white ${label ? "px-1" : ""}`}>{label}</span>
     </button>
   );
 };

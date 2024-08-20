@@ -1,11 +1,11 @@
-interface TaskProps {
+interface TaskInterface {
   dateTime?: string; // Todo: Check for the right date type
   taskName: string;
   taskDescription?: string;
   icon: React.ReactNode;
 }
 
-const Task: React.FC<TaskProps> = ({
+const Task: React.FC<TaskInterface> = ({
   dateTime,
   taskName,
   taskDescription,
@@ -19,9 +19,9 @@ const Task: React.FC<TaskProps> = ({
           {icon}
         </div>
         <div className="flex flex-col justify-center gap-1">
-          <div className="text-sm italic text-gray">{dateTime}</div>
-          <div className="text-2xl font-semibold text-darkBlue">{taskName}</div>
-          <div className="text-base text-gray">{taskDescription}</div>
+          <i className="text-sm text-gray">{dateTime}</i>
+          <h2 className="text-2xl font-semibold text-darkBlue">{taskName}</h2>
+          <p className="text-base text-gray">{taskDescription}</p>
         </div>
         {/* Todo: Add options here */}
       </div>

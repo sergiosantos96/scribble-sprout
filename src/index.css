@@ -3,3 +3,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.placeholder-text::placeholder {
+  @apply text-sm;
+  font-size: 0.875rem;
+}
