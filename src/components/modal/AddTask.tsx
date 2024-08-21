@@ -1,7 +1,7 @@
 import { useState } from "react";
-import LabeledInput from "./inputs/LabeledInput";
-import LabeledTextarea from "./inputs/LabeledTextarea";
-import Button from "./shared/Button";
+import LabeledInput from "../inputs/LabeledInput";
+import LabeledTextarea from "../inputs/LabeledTextarea";
+import Button from "../shared/Button";
 import { FaPlus } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
