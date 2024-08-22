@@ -1,6 +1,8 @@
 import { useState } from "react";
 import LabeledInput from "../inputs/LabeledInput";
 import LabeledTextarea from "../inputs/LabeledTextarea";
+import UnsavedChangesDialog from "../dialogs/UnsavedChangesDialog";
+import useDialogState from "../../hooks/useDialogState";
 import Button from "../shared/Button";
 import { FaPlus } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
@@ -15,6 +17,7 @@ const AddTask: React.FC<AddTaskInterface> = ({
   setIsFormChanged,
 }) => {
   const [isFormChanged, setIsFormChangedState] = useState(false);
+  const { isDialogOpen, openDialog, closeDialog } = useDialogState();
 
   const handleInputChange = () => {
     setIsFormChangedState(true);
@@ -22,10 +25,15 @@ const AddTask: React.FC<AddTaskInterface> = ({
   };
 
   const handleModalClose = () => {
-    if (isFormChanged) {
-      alert("Form has changed!");
-    }
+    isFormChanged ? openDialog() : closeModal();
+  };
+
+  const handleDialogConfirm = () => {
     closeModal();
+  };
+
+  const handleDialogCancel = () => {
+    closeDialog();
   };
 
   return (
@@ -35,6 +43,12 @@ const AddTask: React.FC<AddTaskInterface> = ({
         {/* Change the text if a task is being edited */}
         <Button icon={<IoMdClose size={22} />} onClick={handleModalClose} />
       </header>
+      {isDialogOpen && (
+        <UnsavedChangesDialog
+          onCancel={handleDialogCancel}
+          onConfirm={handleDialogConfirm}
+        />
+      )}
       <form className="flex flex-col gap-5 p-5 bg-white border rounded-b-md border-borderColor">
         <LabeledInput
           label="Name"

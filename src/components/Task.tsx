@@ -2,7 +2,7 @@ interface TaskInterface {
   dateTime?: string; // Todo: Check for the right date type
   taskName: string;
   taskDescription?: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 const Task: React.FC<TaskInterface> = ({
